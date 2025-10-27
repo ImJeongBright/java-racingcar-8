@@ -4,6 +4,7 @@ import racingcar.constant.Notification;
 import racingcar.entity.Car;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Output {
     public static String NOTATE_HYPHEN = "-";
@@ -17,8 +18,8 @@ public class Output {
         System.out.println(Notification.PROMPT_GAME_COUNT.getNotification());
     }
 
-    public static void printFinalWinner(String winners) {
-        System.out.println(Notification.FINAL_WINNER + winners);
+    public static void printFinalWinner(List<Car> cars) {
+        System.out.println(Notification.FINAL_WINNER.getNotification() + getFormattedWinnerNames(cars));
     }
 
     public static void printRacingResult(List<Car> cars) {
@@ -32,4 +33,7 @@ public class Output {
         return NOTATE_HYPHEN.repeat(value);
     }
 
+    private static String getFormattedWinnerNames(List<Car> cars) {
+        return cars.stream().map(Car::getName).collect(Collectors.joining(", "));
+    }
 }

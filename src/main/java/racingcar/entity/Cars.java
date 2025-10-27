@@ -4,14 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+
+    private static final String NAME_SEPARATOR = ",";
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
-        this.cars = cars;
+    public Cars(String carNames) {
+        cars = new ArrayList<>();
+        addCars(carNames);
     }
 
-    public void addCars(Car car) {
-        cars.add(car);
+    private String[] separateCarName(String carName) {
+        return carName.split(NAME_SEPARATOR);
+    }
+
+    private void addCars(String carName) {
+        String[] carNames = separateCarName(carName);
+
+        for (String name : carNames) {
+            cars.add(new Car(name, 0));
+        }
+
     }
 
     public List<Car> getCars() {
@@ -22,7 +34,7 @@ public class Cars {
         cars.forEach(Car::move);
     }
 
-    public List<Car> findByWinner() {
+    public List<Car> findByWinners() {
 
         int maxValue = cars.stream()
                 .mapToInt(Car::getPosition)
@@ -34,7 +46,4 @@ public class Cars {
                 .toList();
 
     }
-
-
-
 }

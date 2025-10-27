@@ -19,12 +19,6 @@ public class Car {
             this.position++;
         }
     }
-
-    public String[] separateCars(String carName) {
-        String regex = ",";
-        return carName.split(regex);
-    }
-
     public String getName() {
         return name;
     }
