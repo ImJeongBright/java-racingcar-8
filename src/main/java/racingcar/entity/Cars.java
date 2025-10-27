@@ -1,5 +1,7 @@
 package racingcar.entity;
 
+import racingcar.validator.InvalidCarNameValidator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,15 @@ public class Cars {
     }
 
     private String[] separateCarName(String carName) {
-        return carName.split(NAME_SEPARATOR);
+        InvalidCarNameValidator.validateSeparator(carName);
+
+        String[] carNames = carName.split(NAME_SEPARATOR);
+
+        for (String name : carNames) {
+            InvalidCarNameValidator.validateCarName(name);
+        }
+
+        return carNames;
     }
 
     private void addCars(String carName) {
