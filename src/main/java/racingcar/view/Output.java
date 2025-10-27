@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class Output {
     public static final String NOTATE_HYPHEN = "-";
     public static final String COLOGNE = " : ";
+    public static final String SEPARATOR = ", ";
 
     public static void printCarNamePrompt() {
         System.out.println(Notification.PROMPT_CAR_NAMES.getNotification());
@@ -34,6 +35,6 @@ public class Output {
     }
 
     private static String getFormattedWinnerNames(List<Car> cars) {
-        return cars.stream().map(Car::getName).collect(Collectors.joining(", "));
+        return cars.stream().map(Car::getName).collect(Collectors.joining(SEPARATOR));
     }
 }

@@ -69,7 +69,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 예외_테스트_이름에_공백이_포함된_경우() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, ", "1")) // 이름이 공백인 경우
+                assertThatThrownBy(() -> runException("pobi, ", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
