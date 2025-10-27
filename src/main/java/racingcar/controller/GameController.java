@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.entity.Car;
 import racingcar.entity.Cars;
+import racingcar.validator.InvalidCarNameValidator;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
@@ -15,6 +16,8 @@ public class GameController {
         String carNames = Input.carNames();
         Output.printGameCountPrompt();
         int count = Input.gameCount();
+
+        InvalidCarNameValidator.validateSeparator(carNames);
 
         Cars cars = new Cars(carNames);
 

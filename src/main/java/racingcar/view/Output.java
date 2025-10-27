@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Output {
-    public static String NOTATE_HYPHEN = "-";
-    public static String COLOGNE = " : ";
+    public static final String NOTATE_HYPHEN = "-";
+    public static final String COLOGNE = " : ";
 
     public static void printCarNamePrompt() {
         System.out.println(Notification.PROMPT_CAR_NAMES.getNotification());

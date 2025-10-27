@@ -16,7 +16,6 @@ public class Cars {
     }
 
     private String[] separateCarName(String carName) {
-        InvalidCarNameValidator.validateSeparator(carName);
 
         String[] carNames = carName.split(NAME_SEPARATOR);
 
