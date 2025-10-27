@@ -24,8 +24,6 @@ public class Cars {
 
     public List<Car> findByWinner() {
 
-        List<Car> winners = new ArrayList<>();
-
         int maxValue = cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
